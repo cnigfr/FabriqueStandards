@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    % Logos en haut
+    \begin{minipage}{0.45\textwidth}
+        \raggedright
+        \includegraphics[width=4cm]{./ressources/logo_cnig.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \raggedleft
+        \includegraphics[width=4cm]{./ressources/logo_sponsor.PNG} % <-- Remplacer par le logo du sponsor (optionnel)
+    \end{minipage}
+
+    \vspace{1cm} 
+    % -> Si vous avez plusieurs sponsors, ils pourront être indiqués en partie 1.2,
+    % -> Préférez un logo officiel en format PNG (souvent disponible sur le site du collaborateur via le service communication) plutôt qu'une image récupérée sur un moteur de recherche,
+    % -> Le logo du sponsor doit être de la même hauteur que le logo du CNIG.
+
+    % Titre haut centré
+    {\Huge\bfseries Conseil national de l'information Géolocalisée\par}
+
+    \vspace{1cm} 
+
+    % Image centrale
+    \includegraphics[width=6cm]{./ressources/illustration_standard.PNG} % <-- Remplacer par l'illustration du standard
+
+    \vspace{1cm} 
+
+    % Titre
+    {\Large\bfseries `<Titre>` \par}
+
+    \vspace{0.5cm}
+
+    % Sous-titre
+    {\Large Sous-titre \par}  % <-- Optionnel
+
+    \vfill
+
+    % Nom du groupe et version
+    {\Large\itshape Standard du GT `<nom du GT>` \par}    % <-- Nom du groupe de travail CNIG
+    \vspace{0.5cm}
+    {\large Version `<x.x - jj mois aaaa>` \par}    % <-- Date de publication
+
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}       % <-- Page blanche pour l'impression
+\mbox{}
+\newpage
+
+\end{document}
