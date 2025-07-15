@@ -345,8 +345,6 @@ Voici un tableau résumant la syntaxe de base du langage Markdown.
 - Pour aller à la ligne (sans sauter de ligne), appuyez deux fois sur la touche espace puis appuyez sur la touche Entrée.  
 Utilisez < br > pour aller à la ligne suivante (sans sauter de ligne) si vous êtes dans un tableau.
 
-- Pour souligner un mot : `<u>mot</u>`
-
 Pour plus d'informations, vous pouvez consulter la documentation Markdown sur Github : https://docs.github.com/fr/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
 Votre modèle de référence Word définit des styles pour les différents niveaux de titres (Titre 1, Titre 2, Titre 3, etc.) ainsi que pour le corps du texte (Normal). Pour que la conversion applique correctement les styles, veillez à utiliser ces styles dans votre Markdown via la hiérarchie des titres (#,##,###), que Pandoc associera aux styles correspondants dans Word. Il est aussi possible de personnaliser la police, la taille, l'interligne et les couleurs en modifiant le modèle.
