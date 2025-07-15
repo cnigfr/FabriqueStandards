@@ -71,6 +71,13 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 - c’est le document principal rédigé en Markdown qu'on convertira avec Pandoc.
 
 - il contient le texte structuré, les titres, les images, etc.
+
+
+`README.md`
+
+- c’est la documentation d’explication
+
+- elle sert de guide technique, pour expliquer comment utiliser tous ces fichiers et reproduire le processus de conversion.
   
 
 `page_de_garde.tex`
@@ -84,15 +91,14 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 
 `Dossier modele :` 
 
-
-    `Modele-styles.docx`
+1. `Modele-styles.docx`
 
 - c’est un modèle Word qui contient la mise en forme standardisée (styles de titres, pieds de page, en-têtes, etc.)
 
 - Pandoc l’utilise comme référence pour appliquer la bonne mise en page quand il convertit ton Markdown en Word.
   
 
-  `fig.py`
+2. `fig.py`
 
 - c’est un script Python
 
@@ -101,7 +107,7 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 - cela permet d'éviter de numéroter les figures à la main.
 
 
-  `tab.py`
+3. `tab.py`
 
 - c’est un script Python
 
@@ -115,17 +121,8 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 - le dossier contient : les logos, illustrations, schémas ...
     
 
-`Dossier documentation :`
+`Dossier ressources_documentation`
 
-
-    `Documentation.md`
-
-- c’est la documentation d’explication
-
-- elle sert de guide technique, pour expliquer comment utiliser tous ces fichiers et reproduire le processus de conversion.
-
-
-  `Dossier ressources_documentation`
 
 
 
