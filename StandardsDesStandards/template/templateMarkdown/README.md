@@ -63,8 +63,6 @@ Utile pour préparer ton document Markdown avant la conversion, en automatisant 
 Utile pour gérer la compilation LaTeX de la page de garde.
 
 
--> Installez MiKTeX (https://miktex.org/download)  >  Cochez "Yes" pour "Install missing packages on-the-fly" (voir image ci-dessous). 
-
 
 
 
@@ -182,13 +180,10 @@ Fichier Document.docx-> Exporter -> Créer PDF -> Options -> Cocher créer des s
 **Etape 4 : Conversion de la page de garde Latex en PDF**
 <span id="etape4"></span>
 ````
-pdflatex -interaction=nonstopmode -halt-on-error page_de_garde.tex
+xelatex page_de_garde.tex
 ````
-- "pdflatex" est le compilateur LaTeX qui transforme le fichier source page_de_garde.tex en un fichier PDF.
+- "xelatex" est un compilateur LaTeX qui transforme le fichier source page_de_garde.tex en un fichier PDF.
 
-- "-interaction=nonstopmode" est une option qui indique à "pdflatex" de continuer la compilation même s'il rencontre des erreurs.
-
-- "-halt-on-error" est une option qui indique d'arrêter la compilation si une erreur fatale survient afin d'éviter de produire un PDF corrompu.
 
 
 **Etape 5 : Suppression des fichiers auxiliaires**
@@ -385,7 +380,8 @@ Ce fichier contient les packages et paramètres LaTeX qui définissent la mise e
 
 Il contient également le contenu avec les différents titres, sous-titres, logos etc.
 Pour personnaliser la page de garde :
-- Il suffit de modifier les textes et d'adapter la taille de leur police (Huge, Large ...). 
+- Il suffit de modifier les textes et d'adapter la taille de leur police (Huge, Large ...).
+- Choisissez librement la police de votre texte. 
 - Remplacez les chemins des images par les vôtres. 
 - Vous pouvez aussi adpater les espacements en cm. 
 - Une page blanche est insérée avec `\newpage \thispagestyle{empty} \mbox{} \newpage` pour séparer la page de garde du reste du document pour l'impression.
