@@ -1,14 +1,18 @@
 \documentclass[a4paper,12pt]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
-\usepackage{titling}
-\usepackage{fancyhdr}
-\usepackage{color}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fontspec}       % Nécessaire pour utiliser Marianne
 \usepackage{setspace}
-\usepackage{lmodern}
+\usepackage{ragged2e}
+
+% Déclaration de la police Marianne (si elle est bien installée sur ton système)
+\newfontfamily\marianne{Marianne}
+
+% Couleur bleue officielle (ajustable si besoin)
+\definecolor{etatbleu}{RGB}{15,36,62}
 
 \begin{document}
 
@@ -23,43 +27,46 @@
     \hfill
     \begin{minipage}{0.45\textwidth}
         \raggedleft
-        \includegraphics[width=4cm]{./ressources/logo_sponsor.PNG} % <-- Remplacer par le logo du sponsor (optionnel)
+        \includegraphics[width=4cm]{./ressources/logo_sponsor.PNG}
     \end{minipage}
 
-    \vspace{1cm} 
-    % -> Si vous avez plusieurs sponsors, ils pourront être indiqués en partie 1.2,
-    % -> Préférez un logo officiel en format PNG (souvent disponible sur le site du collaborateur via le service communication) plutôt qu'une image récupérée sur un moteur de recherche,
-    % -> Le logo du sponsor doit être de la même hauteur que le logo du CNIG.
+    \vspace{1cm}
 
     % Titre haut centré
-    {\Huge\bfseries Conseil national de l'information Géolocalisée\par}
+    {\marianne\large\color{etatbleu} Conseil national de l'information Géolocalisée\par}
 
-    \vspace{1cm} 
+    \vspace{1.5cm}
 
     % Image centrale
-    \includegraphics[width=6cm]{./ressources/illustration_standard.PNG} % <-- Remplacer par l'illustration du standard
+    \includegraphics[width=5cm]{./ressources/illustration_standard.PNG}
 
-    \vspace{1cm} 
+    \vspace{1.5cm}
 
-    % Titre
-    {\Large\bfseries `<Titre>` \par}
+    % Titre principal en Marianne + bleu
+    {\marianne\fontsize{27pt}{26pt}\selectfont\color{etatbleu} Géostandards Risques\par}
 
     \vspace{0.5cm}
 
-    % Sous-titre
-    {\Large Sous-titre \par}  % <-- Optionnel
+    % Sous-titre en Marianne + bleu
+    {\marianne\large\color{etatbleu} Plans de prévention des risques (PPR)\par}
 
-    \vfill
+    \vspace{1cm}
 
-    % Nom du groupe et version
-    {\Large\itshape Standard du GT `<nom du GT>` \par}    % <-- Nom du groupe de travail CNIG
-    \vspace{0.5cm}
-    {\large Version `<x.x - jj mois aaaa>` \par}    % <-- Date de publication
+    % Abstract
+    {\marianne\normalsize Abstract\par}
+
+    \vspace{5cm}
+
+    % Pied de page
+    {\marianne\small\itshape Groupe de travail refonte des Géostandards Risques\par}
+    \vspace{0.3cm}
+    {\marianne\small\itshape Version 0.2 - Date\par}
+
 
 \end{titlepage}
 
 \newpage
-\thispagestyle{empty}       % <-- Page blanche pour l'impression
+\thispagestyle{empty}
 \mbox{}
 \newpage
 
