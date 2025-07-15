@@ -352,14 +352,13 @@ Vous pouvez choisir le style de vos légendes en modifiant dans le Word de réf�
 
 Pandoc adopte ce style uniquement si vous écrivez dans le Document.md :
 
-- pour la légende d'une figure/image : il faut que la légende soit située en-dessous de la figure. Ex :
+- pour la légende d'une figure/image : Ex :
 
-`![texte alternatif](chemin/image.png)`  
-`Figure: La légende`    
+`![La légende](./chemin/image.PNG){#fig:mon-ancre}`    
 
 ou en utilisant la balise :
 
-`![texte alternatif](chemin/image.png)`  
+`![texte alternatif](./chemin/image.PNG)`  
 `[FIG] La légende` 
 
 - pour la légende d'une table : il faut que la légende soit située au-dessus du tableau. Ex :
