@@ -23,7 +23,7 @@ Le processus consiste d'abord à préparer l'environnement avec les outils requi
 
 4) [Utilisation et adaptation du modèle de standard](#utilisation-et-adaptation-du-modèle-de-standard)  
 4.a.  [Comment utiliser le modèle : "Document.md" ?](#comment-utiliser-le-modèle--documentmd-)      
-4.b.  [Comment générer automatiquement une numérotation et une liste des figures et tableaux ?](#comment-générer-automatiquement-une-numérotation-et-une-liste-des-figures-et-tableaux-)
+4.b.  [Comment générer automatiquement une numérotation et une liste des figures et tableaux ?](#comment-générer-automatiquement-une-numérotation-et-une-liste-des-figures-et-tableaux-)    
 4.c.  [Comment générer une table des matières ?](#comment-générer-une-table-des-matières-)   
 4.d.  [Comment adapter sa mise en page ?](#comment-adapter-sa-mise-en-page-)   
 4.e.  [Comment adapter la page de garde de son document ?](#comment-adapter-la-page-de-garde-de-son-document-) 
