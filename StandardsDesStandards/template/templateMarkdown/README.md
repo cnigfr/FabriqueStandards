@@ -39,11 +39,11 @@ Le processus consiste d'abord à préparer l'environnement avec les outils requi
 
 ! Attention aux versions des outils que vous utilisez. Certaines posent des problèmes de compatibilité. En cas de doute, utilisez les versions indiquées dans la documentation. !
 
--> Installez l'outil Pandoc (https://github.com/jgm/pandoc/releases/tag/3.1.11.1).
+-> Installez l'outil Pandoc (https://github.com/jgm/pandoc/releases/tag/3.7.0.2).
 
 Pandoc est le convertisseur universel de formats de documents.
 
--> Installez l'outil pandoc-crossref (https://github.com/lierdakil/pandoc-crossref/releases/tag/v0.3.15.0)
+-> Installez l'outil pandoc-crossref (https://github.com/lierdakil/pandoc-crossref/releases/tag/v0.3.20).
 
 Pandoc-crossref est un filtre pour Pandoc qui ajoute aux documents des fonctions de numérotation automatique et de références croisées pour les tables et les figures. Il est préférable de le télécharger dans le même dossier que celui de votre pandoc. 
 
