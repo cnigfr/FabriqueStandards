@@ -84,14 +84,14 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 
 `Dossier modele :` 
 
-`Modele-styles.docx`
+- `Modele-styles.docx`
 
 - c’est un modèle Word qui contient la mise en forme standardisée (styles de titres, pieds de page, en-têtes, etc.)
 
 - Pandoc l’utilise comme référence pour appliquer la bonne mise en page quand il convertit ton Markdown en Word.
   
 
-`fig.py`
+- `fig.py`
 
 - c’est un script Python
 
@@ -100,7 +100,7 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 - cela permet d'éviter de numéroter les figures à la main.
 
 
-`tab.py`
+- `tab.py`
 
 - c’est un script Python
 
@@ -117,14 +117,14 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 `Dossier documentation :`
 
 
-`Documentation.md`
+- `Documentation.md`
 
 - c’est la documentation d’explication
 
 - elle sert de guide technique, pour expliquer comment utiliser tous ces fichiers et reproduire le processus de conversion.
 
 
-`Dossier ressources_documentation`
+- `Dossier ressources_documentation`
 
 
 
