@@ -14,22 +14,19 @@ Le processus consiste d'abord à préparer l'environnement avec les outils requi
 
 1) [Installations préalables](#installations-préalables)
 
-2) [Ressources pour générer le standard](#ressources-pour-generer-le-standard) 
+2) [Ressources pour générer le standard](#ressources-pour-générer-le-standard).
 
 3) [Conversion d'un document Markdown en PDF](#conversion-dun-document-markdown-en-pdf)   
 3.a.  [Méthode 1 : Conversion en passant par Word](#méthode-1--conversion-en-passant-par-word)   
 3.b.  [Méthode 2 : Conversion directe vers PDF](#méthode-2--conversion-directe-vers-pdf)   
 3.c.  [Comparaison des deux méthodes](#comparaison-des-deux-méthodes) 
 
-4) [Utilisation et adaptation du modèle de standard](#utilisation-et-adaptation-du-modele-de-standard)  
-4.a.  [Comment utiliser le modèle : "Document.md" ?](#comment-utiliser-le-modèle--documentmd-)   
-4.b.  [Comment utiliser le modèle : "page_de_garde.tex" ?](#comment-utiliser-le-modèle--page_de_gardetex-)   
-4.c.  [Les bases du langage Markdown](#les-bases-du-langage-markdown)   
-4.e.  [Comment numéroter automatiquement les figures et les tableaux ?](#comment-numéroter-automatiquement-les-figures-et-les-tableaux-)   
-4.f.  [Comment générer automatiquement une liste de figures ou de tableaux ?](#comment-générer-automatiquement-une-liste-de-figures-ou-de-tableaux-)   
-4.g.  [Comment générer une table des matières ?](#comment-générer-une-table-des-matières-)   
-4.h.  [Comment adapter sa mise en page ?](#comment-adapter-sa-mise-en-page-)   
-4.i.  [Comment adapter la page de garde de son document ?](#comment-adapter-la-page-de-garde-de-son-document-) 
+4) [Utilisation et adaptation du modèle de standard](#utilisation-et-adaptation-du-modèle-de-standard)  
+4.a.  [Comment utiliser le modèle : "Document.md" ?](#comment-utiliser-le-modèle--documentmd-)      
+4.b.  [Comment générer automatiquement une numérotation et une liste des figures et tableaux ?](#comment-générer-automatiquement-une-numérotation-et-une-liste-des-figures-et-tableaux-)
+4.c.  [Comment générer une table des matières ?](#comment-générer-une-table-des-matières-)   
+4.d.  [Comment adapter sa mise en page ?](#comment-adapter-sa-mise-en-page-)   
+4.e.  [Comment adapter la page de garde de son document ?](#comment-adapter-la-page-de-garde-de-son-document-) 
 
 
 
@@ -267,9 +264,8 @@ Cette image correspond au rendu dans PDF, obtenue après l'application de la mé
 - Les aides et explications sont `surlignés` et entourés des symboles <>. Ls exemples sont seulement `surlignés` (si vous choisissez de reprendre le texte de l'exemple, retirez le surlignage).
 
 
-### Comment numéroter automatiquement les figures et les tableaux ? 
+### Comment générer automatiquement une numérotation et une liste des figures et tableaux ? 
 
-### Comment générer automatiquement une liste de figures ou de tableaux ? 
 #### Méthode 1 : Utilisations de balises et de scripts python
 ##### Numérotation automatique des figures 
 
