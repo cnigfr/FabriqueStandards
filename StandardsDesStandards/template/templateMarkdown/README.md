@@ -84,7 +84,8 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 
 `Dossier modele :` 
 
-  `Modele-styles.docx`
+
+    `Modele-styles.docx`
 
 - c’est un modèle Word qui contient la mise en forme standardisée (styles de titres, pieds de page, en-têtes, etc.)
 
@@ -117,7 +118,7 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 `Dossier documentation :`
 
 
-  `Documentation.md`
+    `Documentation.md`
 
 - c’est la documentation d’explication
 
