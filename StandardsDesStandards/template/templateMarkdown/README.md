@@ -332,7 +332,7 @@ On ne peut pas positionner la table des matières là où on le souhaite, elle s
 
 Le fichier "Modele-styles.docx" est un document Word utilisé comme modèle de mise en forme lors de la conversion de Document.md en .docx. Pandoc s’appuie sur les styles définis dans ce modèle pour les appliquer automatiquement au document généré.
 
-Pour adapter sa mise en page, il suffit de modifier les styles recensés ci-dessous :
+Pour adapter sa mise en page, il suffit de modifier dans le modèle les styles recensés ci-dessous :
 
 ![](./ressources_documentation/Styles_Word_Pandoc.PNG)
 
