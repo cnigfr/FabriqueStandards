@@ -352,11 +352,13 @@ Votre modèle de référence Word définit des styles pour les différents nivea
 
 
 #### Mise en page des tableaux 
-Les tableaux dans le document converti adoptent le style défini dans le modèle Word, notamment en termes de police, bordures, taille, espacements, alignements, styles des titres de colonne ou encore les couleurs. 
 
-Pour ajuster la présentation des tableaux : 
+Les tableaux dans le document converti adoptent le style défini dans le modèle Word, notamment en termes de police, bordures, taille, espacements, alignements, styles des titres de colonne ou encore les couleurs. Attention tout de même, Pandoc, quand il génère un .docx, applique par défaut le style de tableau nommé Table à tous les tableaux et ne prend pas en considération les autres styles.
 
-- Sélectionnez un tableau (ou insertion>Tableau) dans Word 
+Pour ajuster la présentation des tableaux dans le Word de référence : 
+
+- Insertion > Tableau
+- Sélectionnez le tableau en entier
 - Cliquez sur l'onglet Conception de la table
 - Repérez la section Styles de tableau
 - Cliquez sur la petite flèche en bas pour ouvrir le panneau des styles
@@ -368,7 +370,7 @@ Pour ajuster la présentation des tableaux :
 ![](./ressources_documentation/Style_Tableau.PNG)
 
 
-D'autres fonctionnalités comme les répétitions des titres des colonnes lors des changements de page sont disponibles en cliquant le bouton Format.
+D'autres fonctionnalités comme les répétitions des titres des colonnes lors des changements de page ou la couleur de la police sont disponibles en cliquant sur le bouton Format.
 
 
 #### Mise en page des légendes 
