@@ -334,7 +334,7 @@ Le "Modele-styles.docx" est un fichier Word, utile pour la mise en page du Docum
 
 Pour adapter sa mise en page, il suffit de modifier les styles recensés ci-dessous :
 
-![](./ressources_documentation/BasesMarkdown.PNG)
+![](./ressources_documentation/Styles_Word_Pandoc.PNG)
 
 Pour plus d'informations, vous pouvez consulter le lien suivant : https://pandoc.org/MANUAL.html#option--reference-doc
 
@@ -359,7 +359,7 @@ Votre modèle de référence Word définit des styles pour les différents nivea
 
 #### Mise en page des tableaux 
 
-Les tableaux dans le document converti adoptent le style défini dans le modèle Word, notamment en termes de police, bordures, taille, espacements, alignements, styles des titres de colonne ou encore les couleurs. Attention tout de même, Pandoc, quand il génère un .docx, applique par défaut le style de tableau nommé Table à tous les tableaux et ne prend pas en considération les autres styles.
+Les tableaux dans le document converti adoptent le style défini dans le modèle Word, notamment en termes de bordures, remplissage du fond, l'alignement horizontal (centré, gauche, droite), l'alignement vertical (haut,centre,bas) et l'espacement des cellules. Attention tout de même, quand Pandoc génère un .docx, applique par défaut le style de tableau nommé Table à tous les tableaux et ne prend pas en considération les autres styles.
 
 Pour ajuster la présentation des tableaux dans le Word de référence : 
 
@@ -376,7 +376,9 @@ Pour ajuster la présentation des tableaux dans le Word de référence :
 ![](./ressources_documentation/Style_Tableau.PNG)
 
 
-D'autres fonctionnalités comme les répétitions des titres des colonnes lors des changements de page ou la couleur de la police sont disponibles en cliquant sur le bouton Format.
+D'autres fonctionnalités comme les répétitions des titres des colonnes lors des changements de page sont disponibles en cliquant sur le bouton Format.
+
+En ce qui concerne le style du texte des cellules du tableau, vous ne pouvez pas le changer dans Table mais vous pouvez le faire avec le style Compact (qui est aussi le style utilisé pour les listes).
 
 
 #### Mise en page des légendes 
@@ -385,18 +387,14 @@ Vous pouvez choisir le style de vos légendes en modifiant dans le Word de réf�
 
 Pandoc adopte ce style uniquement si vous écrivez dans le Document.md :
 
-- pour la légende d'une figure/image : Ex :
+- pour la légende d'une figure/image : 
 
 `![La légende](./chemin/image.PNG){#fig:mon-ancre}`    
 
-ou en utilisant la balise :
 
-`![texte alternatif](./chemin/image.PNG)`  
-`[FIG] La légende` 
+- pour la légende d'une table :  
 
-- pour la légende d'une table : il faut que la légende soit située au-dessus du tableau. Ex :
-
-`Table: La légende`
+`Table: La légende {tbl:mon_tableau}`
 
 `| a | b |`  
 `|---|---|`  
