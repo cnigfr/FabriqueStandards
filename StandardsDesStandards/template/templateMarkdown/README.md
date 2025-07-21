@@ -106,11 +106,27 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 
 3. `tab.py`
 
-- c’est un script Python
+- il s'agit d'un script Python
 
 - il remplace dans le Markdown les balises [TAB] par une numérotation automatique des figures (par exemple “Table: 1”, “Table: 2”…).
 
 - cela permet d'éviter de numéroter les tableaux à la main.
+
+
+4. `move-toc.lua`
+
+- il s'agit d'un filtre Lua pour Pandoc
+
+- il insère un champ TOC (table of contents : table des matières) Word dynamique à l'endroit marqué :::toc, en insérant directement le XML Word.
+
+
+5. `sup-toc.py`
+
+- il s'agit d'un script Python
+
+- il modifie un document .docx après sa génération
+
+- il supprime tout le contenu situé avant le titre "FICHE DESCRIPTIVE".
 
 
 `Dossier ressources :`
@@ -146,7 +162,7 @@ python ./modele/tab.py Document.md
 **Etape 2 : Conversion du Markdown en un document .docx**
 
 ````
-pandoc -s -f markdown -t docx --toc --toc-depth=3 --filter pandoc-crossref -o Document.docx --reference-doc=./modele/Modele-styles.docx Document.md
+pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc.lua --filter pandoc-crossref -o Document.docx --reference-doc=./modele/Modele-styles.docx Document.md
 ````
 - "pandoc" est un outil très puissant pour convertir des documents d’un format à un autre.
 
@@ -156,9 +172,11 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --filter pandoc-crossref -o Do
 
 - "t docx" est le format de sortie : DOCX (fichier Word).
 
-- "--toc" ajoute une table des matières (table of contents) au document.
+- "--toc" ajoute une table des matières au document.
 
 - "--toc-depth=3" indique de prendre en compte les titres de niveaux 1, 2 et 3 pour la table des matières.
+
+- "--lua-filter=move-toc.lua" permet de copier la table des matières et de la déplacer là où on le souhaite.
 
 - "--filter pandoc-crossref" permet la numérotation automatique et les références croisées de tables et figures. 
 
@@ -169,34 +187,44 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --filter pandoc-crossref -o Do
 - "Document.md" correspond au fichier source Markdown à convertir.
 
 
-**Etape 3 : Exporter le .docx en PDF**
+**Etape 3 : Suppression du TOC inutile**
 
-Fichier Document.docx-> Exporter -> Créer PDF -> Options -> Cocher créer des signets à l'aide de "Titres" -> Publier
+````
+python ./modele/sup-toc.py Document.docx
+````
+
+- Lors de l'étape 2, "--toc" permet de d'ajouter un toc situé par défaut au début du document. Pour le déplacer où on la souhaite, il est nécessaire d'utiliser le filtre lua vu précédement et puis ensuite de supprimer le toc du début (pour ne pas avoir un doublon). C'est cette dernière étape que réalise cette ligne de commande.
+
+**Etape 4 : Exporter le .docx en PDF**
+
+Sous-étape 1 : Ouvrir le Document.docx généré -> CliqueR dans la table des matières vide après le titre Sommaire -> Ciquer sur "Mettre à jour la table".
+
+Sous-étape 2 : Fichier Document.docx -> Exporter -> Créer PDF -> Options -> Cocher créer des signets à l'aide de "Titres" -> Publier
 
 ![](./ressources_documentation/word_pdf.PNG)
 
 
-- Cette étape permet d'exporter le document .docx en document .pdf tout en permettant la conservation des tables de matières.
+- Cette étape permet d'afficher et de mettre à jour la table des matières et puis d'exporter le document .docx en document .pdf tout en permettant la conservation de cette table.
 
 
-**Etape 4 : Conversion de la page de garde Latex en PDF**
-<span id="etape4"></span>
+**Etape 5 : Conversion de la page de garde Latex en PDF**
+<span id="etape5"></span>
 ````
 xelatex page_de_garde.tex
 ````
 - "xelatex" est un compilateur LaTeX qui transforme le fichier source page_de_garde.tex en un fichier PDF.
 
 
-**Etape 5 : Suppression des fichiers auxiliaires**
-<span id="etape5"></span>
+**Etape 6 : Suppression des fichiers auxiliaires**
+<span id="etape6"></span>
 ````
 rm -f page_de_garde.{aux,log,out}
 ````
 - la commande "rm" supprime les fichiers auxiliaires générés par LaTeX comme : page_de_garde.aux , page_de_garde.log , page_de_garde.out. Ces fichiers contiennent des informations de compilation qui encombrent inutilement le répertoire.
 
 
-**Etape 6 : Fusion de la page de garde et du document principal**
-<span id="etape6"></span>
+**Etape 7 : Fusion de la page de garde et du document principal**
+<span id="etape7"></span>
 ````
 pdfunite page_de_garde.pdf Document.pdf document_final.pdf
 ````
@@ -223,15 +251,15 @@ pandoc Document.md -o Document.pdf --pdf-engine=xelatex
 
 
 **Etape 3 : Conversion de la page de garde Latex en PDF**
-[(voir ci-dessus)](#etape4).
-
-
-**Etape 4 : Suppression des fichiers auxiliaires**
 [(voir ci-dessus)](#etape5).
 
 
-**Etape 5 : Fusion de la page de garde et du document principal**
+**Etape 4 : Suppression des fichiers auxiliaires**
 [(voir ci-dessus)](#etape6).
+
+
+**Etape 5 : Fusion de la page de garde et du document principal**
+[(voir ci-dessus)](#etape7).
 
 
 ### Comparaison des deux méthodes 
@@ -321,11 +349,16 @@ Il suffit d'insérer des balises spéciales dans le document Markdown à l'endro
 
 ### Comment générer une table des matières ? 
 
-L'option de la ligne de commande Pandoc "--toc --toc-depth=3" permet de générer automatiquement au début du document un sommaire qui reprend les titres et sous-titres du même document. 
+L'option de la ligne de commande Pandoc "--toc --toc-depth=3" permet de générer par défaut au début du document un sommaire qui reprend les titres et sous-titres du même document. 
 
 "depth=3" indiqe le niveau maximal de titres à inclure, dans cet exemple il est préréglé à 3. 
 
-On ne peut pas positionner la table des matières là où on le souhaite, elle s'affiche directement au début du document.
+
+Cependant, il existe une méthode pour copier et déplacer la table des matières à l'endroit que l'on souhaite. Il faut dans le document Markdown insérer une balise à l'endroit voulu :
+
+![](./ressources_documentation/pandoc-crossref.PNG)
+
+Ensuite, en appliquant le filtre Lua on insère à la place de cette balise la table des matières et en appliquant le script python "sup-toc.py" on supprime celle du début pour ne garder que celle bien située.
 
 
 ### Comment adapter sa mise en page ? 
