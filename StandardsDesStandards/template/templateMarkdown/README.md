@@ -197,7 +197,7 @@ python ./modele/sup-toc.py Document.docx
 
 **Etape 4 : Exporter le .docx en PDF**
 
-Sous-étape 1 : Ouvrir le Document.docx généré -> CliqueR dans la table des matières vide après le titre Sommaire -> Ciquer sur "Mettre à jour la table".
+Sous-étape 1 : Ouvrir le Document.docx généré -> Cliquer dans la table des matières vide après le titre Sommaire -> Cliquer sur "Mettre à jour la table".
 
 Sous-étape 2 : Fichier Document.docx -> Exporter -> Créer PDF -> Options -> Cocher créer des signets à l'aide de "Titres" -> Publier
 
