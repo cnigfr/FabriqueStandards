@@ -356,7 +356,7 @@ L'option de la ligne de commande Pandoc "--toc --toc-depth=3" permet de génére
 
 Cependant, il existe une méthode pour copier et déplacer la table des matières à l'endroit que l'on souhaite. Il faut dans le document Markdown insérer une balise à l'endroit voulu :
 
-![](./ressources_documentation/pandoc-crossref.PNG)
+![](./ressources_documentation/Balise-TOC.PNG)
 
 Ensuite, en appliquant le filtre Lua on insère à la place de cette balise la table des matières et en appliquant le script python "sup-toc.py" on supprime celle du début pour ne garder que celle bien située.
 
