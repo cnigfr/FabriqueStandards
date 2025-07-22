@@ -120,13 +120,15 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 - il insère un champ TOC (table of contents : table des matières) Word dynamique à l'endroit marqué :::toc, en insérant directement le XML Word.
 
 
-5. `sup-toc.py`
+5. `post-traitement.py`
 
 - il s'agit d'un script Python
 
 - il modifie un document .docx après sa génération
 
-- il supprime tout le contenu situé avant le titre "FICHE DESCRIPTIVE".
+- il supprime tout le contenu situé avant le titre "FICHE DESCRIPTIVE"
+
+- il ajuste automatiquement le contenu des tableaux.
 
 
 `Dossier ressources :`
@@ -190,10 +192,12 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc
 **Etape 3 : Post-traitement Word**
 
 ````
-python ./modele/sup-toc.py Document.docx
+python ./modele/post-traitement.py Document.docx
 ````
 
 - Lors de l'étape 2, "--toc" permet de d'ajouter un toc situé par défaut au début du document. Pour le déplacer où on la souhaite, il est nécessaire d'utiliser le filtre lua vu précédement et puis ensuite de supprimer le toc du début (pour ne pas avoir un doublon). C'est cette dernière étape que réalise cette ligne de commande.
+  
+- Cette étape permet aussi d'ajuster automatiquement le contenu des tableaux.
 
 **Etape 4 : Exporter le .docx en PDF**
 
@@ -358,7 +362,7 @@ Cependant, il existe une méthode pour copier et déplacer la table des matière
 
 ![](./ressources_documentation/Balise-TOC.PNG)
 
-Ensuite, en appliquant le filtre Lua on insère à la place de cette balise la table des matières et en appliquant le script python "sup-toc.py" on supprime celle du début pour ne garder que celle bien située.
+Ensuite, en appliquant le filtre Lua on insère à la place de cette balise la table des matières et en appliquant le script python "post-traitement.py" on supprime celle du début pour ne garder que celle bien située.
 
 
 ### Comment adapter sa mise en page ? 
