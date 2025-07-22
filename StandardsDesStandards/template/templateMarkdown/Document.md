@@ -24,6 +24,12 @@
 | **Informations complémentaires** | `<(facultatif) toute autre information descriptive sur le contenu et nécessaire à la fiche d'information, par exemple les référentiels (CARET, Sandre, Sar, etc.), normes et standards en lien (ceux que le standard remplace, les normes en lien, etc.).<br>Lien vers github>` |
 
 
+# Sommaire
+
+:::toc
+:::
+
+
 #  3. Préface
 
 ##  3.1  Historique et suivi du document
