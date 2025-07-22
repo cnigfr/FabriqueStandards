@@ -118,6 +118,8 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 
 - il modifie un document .docx après sa génération
 
+- il règle la police de tous les tableaux à la taille 9 pt
+
 - il supprime tout le contenu situé avant le titre "FICHE DESCRIPTIVE"
 
 - il ajuste automatiquement le contenu des tableaux.
@@ -178,7 +180,10 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc
 python ./modele/post-traitement.py Document.docx
 ````
 
-- Lors de l'étape 2, "--toc" permet de d'ajouter un toc situé par défaut au début du document. Pour le déplacer où on la souhaite, il est nécessaire d'utiliser le filtre lua vu précédement et puis ensuite de supprimer le toc du début (pour ne pas avoir un doublon). C'est cette dernière étape que réalise cette ligne de commande.
+
+- Cette étape de post-traitement permet de réduire la taille de la police des tableaux à 9 pt.
+
+- Lors de l'étape 2, "--toc" permet d'ajouter un toc, situé par défaut au début du document. Pour le déplacer où on la souhaite, il est nécessaire d'utiliser le filtre lua vu précédement et puis ensuite de supprimer le toc du début (pour ne pas avoir un doublon). C'est cette dernière étape que réalise en autre cette ligne de commande.
   
 - Cette étape permet aussi d'ajuster automatiquement le contenu des tableaux.
 
