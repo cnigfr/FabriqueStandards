@@ -225,9 +225,9 @@ rm -f page_de_garde.{aux,log,out}
 
 
 ````
-pdfunite page_de_garde.pdf Document.pdf document_final.pdf
+qpdf --empty --pages page_de_garde.pdf Document.pdf -- document_final.pdf
 ````
-- "pdfunite page_de_garde.pdf rapport.pdf document_final.pdf" permet de fusionner le fichier latex de la page de garde avec le document principal.
+- "qpdf --empty --pages page_de_garde.pdf Document.pdf -- document_final.pdf" permet de fusionner le fichier latex de la page de garde avec le document principal.
 
 
 ## Méthode 2 : Conversion directe vers PDF 
