@@ -105,32 +105,14 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 - Pandoc l’utilise comme référence pour appliquer la bonne mise en page quand il convertit ton Markdown en Word.
   
 
-2. `fig.py`
-
-- c’est un script Python
-
-- il remplace dans le Markdown les balises [FIG] par une numérotation automatique des figures (par exemple “Figure: 1”, “Figure: 2”…).
-
-- cela permet d'éviter de numéroter les figures à la main.
-
-
-3. `tab.py`
-
-- il s'agit d'un script Python
-
-- il remplace dans le Markdown les balises [TAB] par une numérotation automatique des figures (par exemple “Table: 1”, “Table: 2”…).
-
-- cela permet d'éviter de numéroter les tableaux à la main.
-
-
-4. `move-toc.lua`
+2. `move-toc.lua`
 
 - il s'agit d'un filtre Lua pour Pandoc
 
 - il insère un champ TOC (table of contents : table des matières) Word dynamique à l'endroit marqué :::toc, en insérant directement le XML Word.
 
 
-5. `post-traitement.py`
+3. `post-traitement.py`
 
 - il s'agit d'un script Python
 
@@ -160,20 +142,7 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 Nous allons maintenant aborder les différentes étapes pour convertir un document Markdown en un document PDf. Ces étapes doivent être réalisé dans un terminal de commande (de préférence GitBash).
 
 
-### Etape 1 (optionnelle si on utilise à l'étape 2 : --filter pandoc-crossref): Génération automatique des numéros des figures et des tables
-<span id="etape1"></span>
-
-
-````
-python ./modele/fig.py Document.md
-````
-````
-python ./modele/tab.py Document.md
-````
-- "python ./modele/fig.py Document.md" permet de lancer un script python. Son but est de générer dans le Markdown à l'endroit et à la place de la balise [FIG] une numérotation automatique de la figure du tye "Figure: X". De même, il remplace la balise [TAB] par "Table: X".
-
-
-### Etape 2 : Conversion du Markdown en un document .docx
+### Etape 1 : Conversion du Markdown en un document .docx
 
 
 ````
@@ -202,7 +171,7 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc
 - "Document.md" correspond au fichier source Markdown à convertir.
 
 
-### Etape 3 : Post-traitement Word
+### Etape 2 : Post-traitement Word
 
 
 ````
@@ -213,7 +182,7 @@ python ./modele/post-traitement.py Document.docx
   
 - Cette étape permet aussi d'ajuster automatiquement le contenu des tableaux.
 
-### Etape 4 : Exporter le .docx en PDF
+### Etape 3 : Exporter le .docx en PDF
 
 
 Sous-étape 1 : Ouvrir le Document.docx généré -> Cliquer dans la table des matières vide après le titre Sommaire -> Cliquer sur "Mettre à jour la table".
@@ -226,7 +195,7 @@ Sous-étape 2 : Fichier Document.docx -> Exporter -> Créer PDF -> Options -> Co
 - Cette étape permet d'afficher et de mettre à jour la table des matières et puis d'exporter le document .docx en document .pdf tout en permettant la conservation de cette table.
 
 
-### Etape 5 : Conversion de la page de garde Latex en PDF
+### Etape 4 : Conversion de la page de garde Latex en PDF
 <span id="etape5"></span>
 
 
@@ -236,7 +205,7 @@ xelatex page_de_garde.tex
 - "xelatex" est un compilateur LaTeX qui transforme le fichier source page_de_garde.tex en un fichier PDF.
 
 
-### Etape 6 : Suppression des fichiers auxiliaires
+### Etape 5 : Suppression des fichiers auxiliaires
 <span id="etape6"></span>
 
 
@@ -246,7 +215,7 @@ rm -f page_de_garde.{aux,log,out}
 - la commande "rm" supprime les fichiers auxiliaires générés par LaTeX comme : page_de_garde.aux , page_de_garde.log , page_de_garde.out. Ces fichiers contiennent des informations de compilation qui encombrent inutilement le répertoire.
 
 
-### Etape 7 : Fusion de la page de garde et du document principal
+### Etape 6 : Fusion de la page de garde et du document principal
 <span id="etape7"></span>
 
 
@@ -265,10 +234,7 @@ Nous pouvons également convertir directement le fichier Markdown en PDF. Cette 
 Cependant, la mise en page ne sera pas personnalisée puisque cette méthode ne dispose pas d'un document Word pour choisir le style. Ainsi, cette méthode est pour l’instant à utiliser avec précaution et mérite d’être développée davantage par la suite.
 
 
-### Etape 1 (optionnelle si on utilise à l'étape 2 : --filter pandoc-crossref): Génération automatique des numéros des figures et des tables [(voir ci-dessus)](#etape1).
-
-
-### Etape 2 : Conversion du Markdown en un document .pdf
+### Etape 1 : Conversion du Markdown en un document .pdf
 
 
 ````
@@ -279,15 +245,15 @@ pandoc Document.md -o Document.pdf --pdf-engine=xelatex
 - "--pdf-engine=xelatex" est une option qui précise quel moteur LaTeX utiliser pour produire le PDF. Par défaut, Pandoc ne crée pas directement de PDF. Il transforme d'abord le Markdown en Latex, puis utilise un moteur Latex pour le compiler en pdf.
 
 
-### Etape 3 : Conversion de la page de garde Latex en PDF
+### Etape 2 : Conversion de la page de garde Latex en PDF
 [(voir ci-dessus)](#etape5).
 
 
-### Etape 4 : Suppression des fichiers auxiliaires
+### Etape 3 : Suppression des fichiers auxiliaires
 [(voir ci-dessus)](#etape6).
 
 
-### Etape 5 : Fusion de la page de garde et du document principal
+### Etape 4 : Fusion de la page de garde et du document principal
 [(voir ci-dessus)](#etape7).
 
 
@@ -323,33 +289,8 @@ Cette image correspond au rendu dans PDF, obtenue après l'application de la mé
 
 ## Comment générer automatiquement une numérotation et une liste des figures et tableaux ? 
 
-### Méthode 1 : Utilisations de balises et de scripts python
-#### Numérotation automatique des figures 
+### Utilisations du filtre pandoc-crossref
 
-La balise [FIG] et la ligne de commande : "python fig.py Document.md" permet de générer à l'endroit et à la place de la balise une numérotation automatique de la figure du type "Figure: X". 
-
-Pour ce faire, il suffit simplement de placer la balise [FIG] une ou plusieurs fois à ou aux endroits, où vous souhaiteriez indiquer la numérotation d'une figure dans le **Document.md**. 
-
-Ainsi, une fois la ligne de commande "python fig.py Document.md" lancée, elle remplacera automatiquement la balise par la bonne numérotation.
-
-**Exemple :**
-
-![](./ressources_documentation/Exemple_Balise.PNG)   
-
-Après exécution du script :  
-
-![](./ressources_documentation/Exemple2_Balise.PNG)   
-
-
-#### Numérotation automatique des tableaux 
-
-La balise [TAB] et la ligne de commande : "python tab.py Document.md" permet de générer à l'endroit et à la place de la balise une numérotation automatique du tableau du type "Table: X". 
-
-Pour ce faire, il suffit simplement de placer la balise [TAB] une ou plusieurs fois à ou aux endroits, où vous souhaiteriez indiquer la numérotation d'un tableau dans le **Document.md**. 
-
-Ainsi, une fois la ligne de commande "python tab.py Document.md" lancée, elle remplacera automatiquement la balise par la bonne numérotation.
-
-### Méthode 2 : Utilisations du filtre pandoc-crossref
 #### Numérotation automatique des figures et des tableaux 
 
 Pandoc-crossref est un filtre pour Pandoc qui ajoute aux documents des fonctions de numérotation automatique et de références croisées pour les tables et les figures.
@@ -401,11 +342,13 @@ Pour adapter sa mise en page, il suffit de modifier dans le modèle les styles r
 Pour plus d'informations, vous pouvez consulter le lien suivant : https://pandoc.org/MANUAL.html#option--reference-doc
 
 ### En-têtes 
+
 Le modèle contient des styles prédéfinis pour les en-têtes et pieds de page. Lors de la conversion, Pandoc applique automatiquement ces styles, ce qui garantit une uniformité sur toutes les pages. 
 
 Pour personnaliser les en-têtes, modifiez-les directement. Vous pouvez y insérer des numéros de pages ou toute autre information répétée.
 
 ### Style titres et texte 
+
 Voici un tableau résumant la syntaxe de base du langage Markdown.
 
 ![](./ressources_documentation/BasesMarkdown.PNG)
