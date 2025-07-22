@@ -14,7 +14,7 @@ Le processus consiste d'abord à préparer l'environnement avec les outils requi
 
 1) [Installations préalables](#installations-préalables)
 
-2) [Ressources pour générer le standard](#ressources-pour-générer-le-standard).
+2) [Ressources pour générer le standard](#ressources-pour-générer-le-standard)
 
 3) [Conversion d'un document Markdown en PDF](#conversion-dun-document-markdown-en-pdf)   
 3.a.  [Méthode 1 : Conversion en passant par Word](#méthode-1--conversion-en-passant-par-word)   
