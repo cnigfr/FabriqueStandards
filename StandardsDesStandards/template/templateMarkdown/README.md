@@ -187,7 +187,7 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc
 - "Document.md" correspond au fichier source Markdown à convertir.
 
 
-**Etape 3 : Suppression du TOC inutile**
+**Etape 3 : Post-traitement Word**
 
 ````
 python ./modele/sup-toc.py Document.docx
