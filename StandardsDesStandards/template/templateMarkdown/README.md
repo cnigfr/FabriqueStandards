@@ -142,7 +142,7 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 Nous allons maintenant aborder les différentes étapes pour convertir un document Markdown en un document PDf. Ces étapes doivent être réalisé dans un terminal de commande (de préférence GitBash).
 
 
-### Etape 1 : Conversion du Markdown en un document .docx
+### Etape 1 : Conversion du Markdown en un document Word
 
 
 ````
@@ -182,7 +182,7 @@ python ./modele/post-traitement.py Document.docx
   
 - Cette étape permet aussi d'ajuster automatiquement le contenu des tableaux.
 
-### Etape 3 : Exporter le .docx en PDF
+### Etape 3 : Exporter le Word en PDF
 
 
 Sous-étape 1 : Ouvrir le Document.docx généré -> Cliquer dans la table des matières vide après le titre Sommaire -> Cliquer sur "Mettre à jour la table".
