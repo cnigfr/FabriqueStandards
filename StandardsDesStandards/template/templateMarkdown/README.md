@@ -5,7 +5,9 @@
 
 Cette documentation décrit le processus complet permettant de convertir un document rédigé au format Markdown en un document finalisé au format Word ou PDF. Elle explique également comment intégrer une page de garde au document final et assurer une mise en page normalisée.
 
+
 L'objectif est de formaliser ce processus afin de le rendre facilement reproductible. 
+
 
 Le processus consiste d'abord à préparer l'environnement avec les outils requis puis de structurer les fichiers sources avant de convertir le Markdown en Word en appliquant un modèle de mise en forme. La suite consiste à exporter le document Word en PDF, à compiler la page de garde LaTeX et enfin de fusionner le tout pour obtenir le document final. La suite de ce document détaille pas à pas ces étapes, les prérequis à installer et les commandes à utiliser.
 
@@ -14,12 +16,15 @@ Le processus consiste d'abord à préparer l'environnement avec les outils requi
 
 1) [Installations préalables](#installations-préalables)
 
+
 2) [Ressources pour générer le standard](#ressources-pour-générer-le-standard)
+
 
 3) [Conversion d'un document Markdown en PDF](#conversion-dun-document-markdown-en-pdf)   
 3.a.  [Méthode 1 : Conversion en passant par Word](#méthode-1--conversion-en-passant-par-word)   
 3.b.  [Méthode 2 : Conversion directe vers PDF](#méthode-2--conversion-directe-vers-pdf)   
 3.c.  [Comparaison des deux méthodes](#comparaison-des-deux-méthodes) 
+
 
 4) [Utilisation et adaptation du modèle de standard](#utilisation-et-adaptation-du-modèle-de-standard)  
 4.a.  [Comment utiliser le modèle : "Document.md" ?](#comment-utiliser-le-modèle--documentmd-)      
@@ -34,21 +39,26 @@ Le processus consiste d'abord à préparer l'environnement avec les outils requi
 
 ! Attention aux versions des outils que vous utilisez. Certaines posent des problèmes de compatibilité. En cas de doute, utilisez les versions indiquées dans la documentation. !
 
+
 - Installez l'outil Pandoc (https://github.com/jgm/pandoc/releases/tag/3.7.0.2).
 
 Pandoc est le convertisseur universel de formats de documents.
+
 
 - Installez l'outil pandoc-crossref (https://github.com/lierdakil/pandoc-crossref/releases/tag/v0.3.20).
 
 Pandoc-crossref est un filtre pour Pandoc qui ajoute aux documents des fonctions de numérotation automatique et de références croisées pour les tables et les figures. Il est préférable de le télécharger dans le même dossier que celui de votre pandoc. 
 
+
 - Installez l'outil Visual Studio Code (https://code.visualstudio.com/).
 
 Utile pour avoir un environnement de travail en local et visualiser les changements effectués sur les documents.
 
+
 - Installez Python (ex version : 3.13.3) (https://www.python.org/downloads/). 
 
-Utile pour préparer votre document Markdown avant la conversion, en automatisant des tâches comme par exemple la numérotation des figures.
+Utile pour préparer votre document avant ou après la conversion, en automatisant des tâches.
+
 
 - Installez MiKTeX (https://miktex.org/download)  >  Cochez "Yes" pour "Install missing packages on-the-fly" (voir image ci-dessous). 
 
