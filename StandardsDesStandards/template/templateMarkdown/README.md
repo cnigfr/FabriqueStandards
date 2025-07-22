@@ -156,11 +156,13 @@ Utile pour gérer la compilation LaTeX de la page de garde.
 
 ## Méthode 1 : Conversion en passant par Word 
 
+
 Nous allons maintenant aborder les différentes étapes pour convertir un document Markdown en un document PDf. Ces étapes doivent être réalisé dans un terminal de commande (de préférence GitBash).
 
 
-**Etape 1 (optionnelle si on utilise à l'étape 2 : --filter pandoc-crossref): Génération automatique des numéros des figures et des tables**
+### Etape 1 (optionnelle si on utilise à l'étape 2 : --filter pandoc-crossref): Génération automatique des numéros des figures et des tables
 <span id="etape1"></span>
+
 
 ````
 python ./modele/fig.py Document.md
@@ -171,7 +173,8 @@ python ./modele/tab.py Document.md
 - "python ./modele/fig.py Document.md" permet de lancer un script python. Son but est de générer dans le Markdown à l'endroit et à la place de la balise [FIG] une numérotation automatique de la figure du tye "Figure: X". De même, il remplace la balise [TAB] par "Table: X".
 
 
-**Etape 2 : Conversion du Markdown en un document .docx**
+### Etape 2 : Conversion du Markdown en un document .docx
+
 
 ````
 pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc.lua --filter pandoc-crossref -o Document.docx --reference-doc=./modele/Modele-styles.docx Document.md
@@ -199,7 +202,8 @@ pandoc -s -f markdown -t docx --toc --toc-depth=3 --lua-filter=./modele/move-toc
 - "Document.md" correspond au fichier source Markdown à convertir.
 
 
-**Etape 3 : Post-traitement Word**
+### Etape 3 : Post-traitement Word
+
 
 ````
 python ./modele/post-traitement.py Document.docx
@@ -209,7 +213,8 @@ python ./modele/post-traitement.py Document.docx
   
 - Cette étape permet aussi d'ajuster automatiquement le contenu des tableaux.
 
-**Etape 4 : Exporter le .docx en PDF**
+### Etape 4 : Exporter le .docx en PDF
+
 
 Sous-étape 1 : Ouvrir le Document.docx généré -> Cliquer dans la table des matières vide après le titre Sommaire -> Cliquer sur "Mettre à jour la table".
 
@@ -221,24 +226,30 @@ Sous-étape 2 : Fichier Document.docx -> Exporter -> Créer PDF -> Options -> Co
 - Cette étape permet d'afficher et de mettre à jour la table des matières et puis d'exporter le document .docx en document .pdf tout en permettant la conservation de cette table.
 
 
-**Etape 5 : Conversion de la page de garde Latex en PDF**
+### Etape 5 : Conversion de la page de garde Latex en PDF
 <span id="etape5"></span>
+
+
 ````
 xelatex page_de_garde.tex
 ````
 - "xelatex" est un compilateur LaTeX qui transforme le fichier source page_de_garde.tex en un fichier PDF.
 
 
-**Etape 6 : Suppression des fichiers auxiliaires**
+### Etape 6 : Suppression des fichiers auxiliaires
 <span id="etape6"></span>
+
+
 ````
 rm -f page_de_garde.{aux,log,out}
 ````
 - la commande "rm" supprime les fichiers auxiliaires générés par LaTeX comme : page_de_garde.aux , page_de_garde.log , page_de_garde.out. Ces fichiers contiennent des informations de compilation qui encombrent inutilement le répertoire.
 
 
-**Etape 7 : Fusion de la page de garde et du document principal**
+### Etape 7 : Fusion de la page de garde et du document principal
 <span id="etape7"></span>
+
+
 ````
 pdfunite page_de_garde.pdf Document.pdf document_final.pdf
 ````
@@ -247,14 +258,18 @@ pdfunite page_de_garde.pdf Document.pdf document_final.pdf
 
 ## Méthode 2 : Conversion directe vers PDF 
 
+
 Nous pouvons également convertir directement le fichier Markdown en PDF. Cette méthode présente l’avantage d’être plus concise et de comporter moins d’étapes intermédiaires que la précédente. 
+
 
 Cependant, la mise en page ne sera pas personnalisée puisque cette méthode ne dispose pas d'un document Word pour choisir le style. Ainsi, cette méthode est pour l’instant à utiliser avec précaution et mérite d’être développée davantage par la suite.
 
-**Etape 1 (optionnelle si on utilise à l'étape 2 : --filter pandoc-crossref): Génération automatique des numéros des figures et des tables** [(voir ci-dessus)](#etape1).
+
+### Etape 1 (optionnelle si on utilise à l'étape 2 : --filter pandoc-crossref): Génération automatique des numéros des figures et des tables [(voir ci-dessus)](#etape1).
 
 
-**Etape 2 : Conversion du Markdown en un document .pdf**
+### Etape 2 : Conversion du Markdown en un document .pdf
+
 
 ````
 pandoc Document.md -o Document.pdf --pdf-engine=xelatex
@@ -264,15 +279,15 @@ pandoc Document.md -o Document.pdf --pdf-engine=xelatex
 - "--pdf-engine=xelatex" est une option qui précise quel moteur LaTeX utiliser pour produire le PDF. Par défaut, Pandoc ne crée pas directement de PDF. Il transforme d'abord le Markdown en Latex, puis utilise un moteur Latex pour le compiler en pdf.
 
 
-**Etape 3 : Conversion de la page de garde Latex en PDF**
+### Etape 3 : Conversion de la page de garde Latex en PDF
 [(voir ci-dessus)](#etape5).
 
 
-**Etape 4 : Suppression des fichiers auxiliaires**
+### Etape 4 : Suppression des fichiers auxiliaires
 [(voir ci-dessus)](#etape6).
 
 
-**Etape 5 : Fusion de la page de garde et du document principal**
+### Etape 5 : Fusion de la page de garde et du document principal
 [(voir ci-dessus)](#etape7).
 
 
