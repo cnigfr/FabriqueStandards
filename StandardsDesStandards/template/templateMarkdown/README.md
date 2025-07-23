@@ -326,7 +326,7 @@ Il suffit d'insérer des balises spéciales dans le document Markdown à l'endro
 
 L'option de la ligne de commande Pandoc "--toc --toc-depth=3" permet de générer par défaut au début du document un sommaire qui reprend les titres et sous-titres du même document. 
 
-"depth=3" indiqe le niveau maximal de titres à inclure, dans cet exemple il est préréglé à 3. 
+"depth=3" indique le niveau maximal de titres à inclure, dans cet exemple il est préréglé à 3. 
 
 
 Cependant, il existe une méthode pour copier et déplacer la table des matières à l'endroit que l'on souhaite. Il faut dans le document Markdown insérer une balise à l'endroit voulu :
